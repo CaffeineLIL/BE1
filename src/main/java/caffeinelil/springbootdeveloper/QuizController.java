@@ -30,6 +30,6 @@ public class QuizController {
     }
 }
 
-//git 잘 쓰고 있나 아무 주석 추가해보기
+//git 잘 쓰고 있나 아무 주석 추가함
 
 record Code(int value) {}
