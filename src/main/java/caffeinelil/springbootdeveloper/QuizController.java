@@ -20,6 +20,7 @@ public class QuizController {
     @PostMapping("/quiz")
     public ResponseEntity<String> Quiz2(@RequestBody Code code){
 
+        //향상된 switch 문이 뭐지?
         switch (code.value()){
             case 1:
                 return ResponseEntity.status(403).body("Forbidden!");
