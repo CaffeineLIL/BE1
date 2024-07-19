@@ -22,7 +22,7 @@ public class QuizController {
 
         switch (code.value()){
             case 1:
-                return ResponseEntity.status(403).body("Forbidden!~");
+                return ResponseEntity.status(403).body("Forbidden!");
             default:
                 return ResponseEntity.ok().body("OK!");
         }
