@@ -21,4 +21,14 @@ class MemberRepositoryTest {
 
         assertThat(members.size()).isEqualTo(3);
     }
+
+    @Sql("/insert-members.sql")
+    @Test
+    void getMemberByName(){
+        //when
+        Member member = memberRepository.findByname("C").get();
+
+        //then
+        assertThat(member.getId()).isEqualTo(3);
+    }
 }
