@@ -80,4 +80,22 @@ class MemberRepositoryTest {
         //then
         assertThat(memberRepository.findAll().size()).isZero();
     }
+
+    @Sql("/insert-members.sql")
+    @Test
+    void update(){
+        //given
+        Member member = memberRepository.findById(2L).get();
+
+        //when
+        member.changeName("BC");
+
+        //then
+        assertThat(memberRepository.findById(2L).get().getName()).isEqualTo("BC");
+    }
+
+    //원래 @Transactional 어노테이션을 붙여야 JPA가 변경 가지 기능을 통해 DB에 자동으로 변경사항을 반영한다.
+    //하지만, 우린 이 테스트 코드에 @DataJpaTest 어노테이션을 사용하였기 때문에 자동 적용이 된다.
+    //이게 뭔 개소리지 싶은데, @DataJpaTest 어노테이션의 세부 항목을 잘 보면, @Transactonal 어노테이션이 이미 있다! 두둥탁
+    
 }
